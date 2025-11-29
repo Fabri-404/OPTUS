@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTUS | Automatización e IA en Bolivia</title>
+    <meta name="description" content="Líderes en automatización, agentes de IA y transformación digital en Bolivia.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            /* Paleta Azul Oscuro OPTUS */
+            --bg-dark: #0B1120;       /* Azul muy oscuro, casi negro */
+            --bg-secondary: #111827;  /* Un tono más claro para secciones */
+
+            --white: #FFFFFF;
+            --text-white: #F3F4F6;
+            --text-main: #F3F4F6;
+            --text-light: #9CA3AF;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+            
+            /* Configuraciones */
+            --radius: 16px;
+            --shadow-subtle: 0 10px 30px rgba(0,0,0,0.3);
+            --shadow-hover: 0 20px 60px rgba(37, 99, 235, 0.4);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- UTILIDADES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding { padding: 100px 0; }
+        .bg-gray { background-color: var(--bg-secondary); }
+        .text-center { text-align: center; }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--blue-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: fixed;
+            top: 110;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-white);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo i { color: var(--accent-cyan); font-size: 30px; }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--accent-cyan); }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--blue-primary), var(--accent-cyan));
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            opacity: 1 !important;
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        /* --- HERO SECTION (3D) --- */
+        .hero {
+            position: relative;
+            padding-top: 180px;
+            padding-bottom: 100px;
+            overflow: hidden;
+            background: var(--bg-dark);
+        }
+
+        /* Fondo geométrico sutil animado con efecto de difuminado azul */
+        .hero-bg-shape {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, rgba(11,17,32,0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            animation: floatShape 10s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, rgba(11,17,32,0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        @keyframes floatShape {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            color: var(--text-white);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue-primary), var(--accent-cyan));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--text-white);
+        }
+
+        /* Contenedor 3D */
+        #canvas-container {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- LOGOS TRUST --- */
+        .logos-section {
+            padding: 40px 0;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .logos-title {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+            opacity: 0.6;
+        }
+
+        .logos-grid i {
+            font-size: 2rem;
+            color: var(--text-light);
+            transition: 0.3s;
+        }
+
+        .logos-grid i:hover {
+            color: var(--accent-cyan);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* --- ABOUT US --- */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover img { transform: scale(1.05); }
+
+        .bolivia-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent-cyan);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .section-desc {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        /* --- SERVICES --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            transition: 0.3s;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 0;
+            background: var(--blue-primary);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--blue-primary);
+        }
+
+        .service-card:hover::before { height: 100%; }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            color: var(--text-white);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        /* --- PORTFOLIO --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .portfolio-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow-subtle);
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .portfolio-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+        .portfolio-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .portfolio-card:hover .portfolio-img img { transform: scale(1.1); }
+
+        .portfolio-info { padding: 24px; }
+        .portfolio-info h4 { color: var(--text-white); margin-bottom: 8px; font-size: 1.2rem; }
+        .portfolio-info p { font-size: 0.9rem; color: var(--text-light); }
+
+        /* --- BENEFITS --- */
+        .benefits-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+
+        .benefit-item:hover { transform: translateY(-3px); border-color: var(--blue-primary); }
+        .benefit-item i { color: var(--accent-cyan); }
+        .benefit-item span { font-weight: 600; color: var(--text-white); }
+
+        /* --- TESTIMONIALS --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .user-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-info h5 { color: var(--text-white); font-size: 1rem; }
+        .user-info span { font-size: 0.85rem; color: var(--text-light); }
+        .testimonial-text { font-style: italic; color: var(--text-light); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #050911;
+            color: white;
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo { font-size: 24px; font-weight: 700; margin-bottom: 20px; display: block; }
+        .footer-desc { color: rgba(255,255,255,0.7); font-size: 0.9rem; max-width: 300px; }
+
+        .footer-col h4 { margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+        .footer-col ul li a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto 32px; }
+            .cta-group { justify-content: center; }
+            .about-section { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            #canvas-container { height: 400px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Mobile Menu Toggle logic needed */
+            .hamburger { display: block; font-size: 24px; color: var(--text-white); cursor: pointer; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Helper for Hamburger (simple implementation) */
+        .hamburger { display: none; }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="/OPTUSLOGO.png" class="logo">
+                    <i class="fa-solid fa-cube"></i> OPTUS
+                </a>
+                <div class="nav-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#casos">Casos</a>
+                    <a href="#contacto" class="btn-nav">Contacto</a>
+                </div>
+                <div class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-bg-shape"></div>
+        <div class="container hero-content">
+            <div class="hero-text" data-aos="fade-up">
+                <h1>Automatización inteligente para el futuro de <span class="text-gradient">Bolivia</span>.</h1>
+                <p>OPTUS transforma tu empresa con agentes de IA y sistemas integrados. La plataforma definitiva para escalar tu negocio en la era digital.</p>
+                <div class="cta-group">
+                    <button class="btn-primary">
+                        Comencemos <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-secondary">
+                        Ver Demo
+                    </button>
+                </div>
+            </div>
+            <div id="canvas-container" data-aos="fade-left"></div>
+        </div>
+    </section>
+
+    <div class="logos-section bg-gray">
+        <div class="container">
+            <p class="logos-title">Nos integramos con tecnología de clase mundial</p>
+            <div class="logos-grid">
+                <i class="fa-brands fa-google" title="Google"></i>
+                <i class="fa-brands fa-microsoft" title="Microsoft"></i>
+                <i class="fa-brands fa-aws" title="Amazon AWS"></i>
+                <i class="fa-brands fa-meta" title="Meta"></i> <i class="fa-brands fa-stripe" title="Stripe"></i>
+                <i class="fa-brands fa-docker" title="Docker"></i>
+            </div>
+        </div>
+    </div>
+
+    <section id="nosotros" class="section-padding">
+        <div class="container">
+            <div class="about-section">
+                <div class="about-text" data-aos="fade-right">
+                    <div class="bolivia-badge">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/32px-Flag_of_Bolivia.svg.png" alt="Bolivia" style="width: 20px; height: auto;">
+                        Orgullosamente Bolivianos
+                    </div>
+                    <h2 class="section-title">Ingeniería local, impacto global.</h2>
+                    <p class="section-desc">
+                        En <strong>OPTUS</strong>, entendemos que el mercado boliviano necesita soluciones robustas y accesibles. No solo implementamos software; construimos el ecosistema digital que permite a las empresas de La Paz, Santa Cruz y todo el país competir internacionalmente.
+                    </p>
+                    <p style="color: var(--text-light);">
+                        Somos pioneros en integrar Inteligencia Artificial generativa con procesos operativos tradicionales, reduciendo la carga manual y potenciando la creatividad humana.
+                    </p>
+                </div>
+                <div class="about-img" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1553877616-15280ed54729?q=80&w=2070&auto=format&fit=crop" alt=" OPTUS ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-padding bg-gray">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title">Soluciones Integrales</h2>
+                <p class="section-desc">Todo lo que necesitas para automatizar tu flujo de trabajo.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+                    <h3>Agentes de IA</h3>
+                    <p class="text-muted">Chatbots y asistentes virtuales entrenados con tus propios datos para atención 24/7 y toma de decisiones.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>Integración de APIs</h3>
+                    <p class="text-muted">Conectamos tu CRM, ERP y herramientas de marketing para que los datos fluyan sin intervención manual.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Automatización B2B</h3>
+                    <p class="text-muted">Optimización de procesos de facturación, logística y gestión de clientes mediante workflows inteligentes.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+                    <h3>Consultoría Digital</h3>
+                    <p class="text-muted">Auditoría tecnológica y hoja de ruta para la transformación digital de tu empresa en Bolivia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">¿Por qué elegir OPTUS?</h2>
+            <div class="benefits-wrapper" data-aos="zoom-in">
+                <div class="benefit-item"><i class="fa-solid fa-bolt"></i> <span>Mayor Velocidad</span></div>
+                <div class="benefit-item"><i class="fa-solid fa-coins"></i> <span>Reducción de Costos</span></div>
+                <div class="benefit-item"><i class="fa-solid fa-lock"></i> <span>Seguridad de Datos</span></div>
+                <div class="benefit-item"><i class="fa-solid fa-expand"></i> <span>Escalabilidad Total</span></div>
+                <div class="benefit-item"><i class="fa-solid fa-headset"></i> <span>Soporte 24/7</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="casos" class="section-padding bg-gray">
+        <div class="container">
+            <h2 class="section-title text-center">Casos de Éxito</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card" data-aos="fade-up">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Dashboard Financiero">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Fintech Boliviana</h4>
+                        <p>Automatización de conciliación bancaria reduciendo el tiempo operativo en un 80%.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Logística">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Logística La Paz</h4>
+                        <p>Sistema de tracking predictivo con IA para rutas de distribución en el alto.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Atención al cliente">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Retail Santa Cruz</h4>
+                        <p>Implementación de agentes de IA para atención al cliente vía WhatsApp Business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Confianza Empresarial</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" class="user-img" alt="CEO">
+                        <div class="user-info">
+                            <h5>Carlos M.</h5>
+                            <span>CEO, TechBolivia</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"OPTUS cambió la forma en que operamos. La integración de nuestros sistemas fue impecable y el diseño de la solución es muy elegante."</p>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" class="user-img" alt="Gerente">
+                        <div class="user-info">
+                            <h5>Sofia R.</h5>
+                            <span>Gerente de Marketing</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"La automatización de nuestros leads nos permitió duplicar las ventas en tres meses. El equipo de OPTUS es experto en IA."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/OPTUSLOGO.jpg" class="footer-logo">OPTUS</a>
+                    <p class="footer-desc">
+                        Liderando la revolución de la automatización en Bolivia. Tecnología de punta para empresas que miran al futuro.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Automatización</a></li>
+                        <li><a href="#">Agentes IA</a></li>
+                        <li><a href="#">Consultoría</a></li>
+                        <li><a href="#">Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                        <li>hola@optus.bo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 OPTUS Bolivia. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // --- 1. INICIALIZAR AOS (Scroll Animations) ---
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // --- 2. GSAP ENTRY ANIMATIONS ---
+        gsap.from("header", { duration: 1, y: -100, opacity: 0, ease: "power3.out", delay: 0.2 });
+
+        // --- 3. THREE.JS (Animación 3D en Hero) ---
+        const initThreeJS = () => {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+
+            // Escena y Cámara
+            const scene = new THREE.Scene();
+            // Fondo transparente para que se vea el CSS
+            
+            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Objeto: Icosaedro "Network"
+            const geometry = new THREE.IcosahedronGeometry(2.2, 1);
+            const material = new THREE.MeshBasicMaterial({ 
+                color: 0x0A84FF, // Azul OPTUS
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3
+            });
+            const sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+
+            // Partículas internas para dar profundidad
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 200;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 6; // Spread
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                color: 0x002B5B // Azul profundo
+            });
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            // Luces (aunque BasicMaterial no las necesita, es bueno para futura expansión)
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            // Interacción con el Mouse
+            let mouseX = 0;
+            let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
+
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX - windowHalfX);
+                mouseY = (event.clientY - windowHalfY);
+            });
+
+            // Animación Loop
+            const animate = () => {
+                requestAnimationFrame(animate);
+
+                targetX = mouseX * 0.001;
+                targetY = mouseY * 0.001;
+
+                // Rotación suave de la esfera
+                sphere.rotation.y += 0.005;
+                sphere.rotation.x += 0.002;
+
+                // Rotación interactiva con easing
+                sphere.rotation.y += 0.05 * (targetX - sphere.rotation.y);
+                sphere.rotation.x += 0.05 * (targetY - sphere.rotation.x);
+
+                // Rotación de partículas opuesta
+                particlesMesh.rotation.y -= 0.002;
+
+                renderer.render(scene, camera);
+            };
+
+            animate();
+
+            // Responsive Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        };
+
+        // Ejecutar Three.js
+        document.addEventListener('DOMContentLoaded', initThreeJS);
+
+        // --- 4. RESPONSIVE MENU LOGIC ---
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+    </script>
+</body>
+</html>
