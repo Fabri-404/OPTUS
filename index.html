@@ -3,891 +3,2101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPTUS | Automatización e IA en Bolivia</title>
-    <meta name="description" content="Líderes en automatización, agentes de IA y transformación digital en Bolivia.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>OPTUS | Líder en Automatización e IA en Bolivia</title>
+    <meta name="description" content="OPTUS: Agentes de IA para automatización de negocios en Bolivia. Simple, rápido y sin código.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        /* --- VARIABLES & RESET --- */
-        :root {
-            /* Paleta Azul Oscuro OPTUS */
-            --bg-dark: #0B1120;       /* Azul muy oscuro, casi negro */
-            --bg-secondary: #111827;  /* Un tono más claro para secciones */
-            --blue-deep: #002B5B;     /* Navy profundo */
-            --blue-primary: #2563EB;  /* Azul vibrante */
-            --accent-cyan: #06B6D4;   /* Cian para gradientes IA */
-            --blue-light: #66AFFF;    /* Azul claro */
-            --white: #FFFFFF;
-            --text-white: #F3F4F6;
-            --text-main: #F3F4F6;
-            --text-light: #9CA3AF;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.1);
-            
-            /* Configuraciones */
-            --radius: 16px;
-            --shadow-subtle: 0 10px 30px rgba(0,0,0,0.3);
-            --shadow-hover: 0 20px 60px rgba(37, 99, 235, 0.4);
-            --font-main: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-
-        /* --- UTILIDADES --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding { padding: 100px 0; }
-        .bg-gray { background-color: var(--bg-secondary); }
-        .text-center { text-align: center; }
-        .text-gradient {
-            background: linear-gradient(135deg, var(--blue-primary), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* --- HEADER & NAV --- */
-        header {
-            position: fixed;
-            top: 110;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(11, 17, 32, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            transition: 0.3s;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--text-white);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .logo i { color: var(--accent-cyan); font-size: 30px; }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-light);
-            opacity: 0.9;
-        }
-
-        .nav-links a:hover { opacity: 1; color: var(--accent-cyan); }
-
-        .btn-nav {
-            background: linear-gradient(135deg, var(--blue-primary), var(--accent-cyan));
-            color: white !important;
-            padding: 10px 24px;
-            border-radius: 50px;
-            opacity: 1 !important;
-            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-        }
-
-        .btn-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
-        }
-
-        /* --- HERO SECTION (3D) --- */
-        .hero {
-            position: relative;
-            padding-top: 180px;
-            padding-bottom: 100px;
-            overflow: hidden;
-            background: var(--bg-dark);
-        }
-
-        /* Fondo geométrico sutil animado con efecto de difuminado azul */
-        .hero-bg-shape {
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, rgba(11,17,32,0) 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            animation: floatShape 10s infinite ease-in-out;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, rgba(11,17,32,0) 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-        }
-
-        @keyframes floatShape {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-20px, 20px); }
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            font-weight: 800;
-            color: var(--text-white);
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 32px;
-            max-width: 500px;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 16px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--blue-primary), var(--accent-cyan));
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-white);
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.05);
-            border-color: var(--text-white);
-        }
-
-        /* Contenedor 3D */
-        #canvas-container {
-            width: 100%;
-            height: 500px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* --- LOGOS TRUST --- */
-        .logos-section {
-            padding: 40px 0;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .logos-title {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .logos-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            align-items: center;
-            opacity: 0.6;
-        }
-
-        .logos-grid i {
-            font-size: 2rem;
-            color: var(--text-light);
-            transition: 0.3s;
-        }
-
-        .logos-grid i:hover {
-            color: var(--accent-cyan);
-            transform: scale(1.1);
-            opacity: 1;
-        }
-
-        /* --- ABOUT US --- */
-        .about-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-img {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .about-img:hover img { transform: scale(1.05); }
-
-        .bolivia-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--accent-cyan);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--text-white);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .section-desc {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-        }
-
-        /* --- SERVICES --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            transition: 0.3s;
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 0;
-            background: var(--blue-primary);
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
-        }
-
-        .service-card:hover::before { height: 100%; }
-
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-cyan);
-            font-size: 24px;
-            margin-bottom: 24px;
-        }
-
-        .service-card h3 {
-            color: var(--text-white);
-            margin-bottom: 12px;
-            font-size: 1.25rem;
-        }
-
-        /* --- PORTFOLIO --- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .portfolio-card {
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: var(--bg-secondary);
-            box-shadow: var(--shadow-subtle);
-            transition: 0.3s;
-            cursor: pointer;
-            border: 1px solid var(--border-color);
-        }
-
-        .portfolio-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-
-        .portfolio-img {
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .portfolio-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .portfolio-card:hover .portfolio-img img { transform: scale(1.1); }
-
-        .portfolio-info { padding: 24px; }
-        .portfolio-info h4 { color: var(--text-white); margin-bottom: 8px; font-size: 1.2rem; }
-        .portfolio-info p { font-size: 0.9rem; color: var(--text-light); }
-
-        /* --- BENEFITS --- */
-        .benefits-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--card-bg);
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border: 1px solid var(--border-color);
-            transition: 0.3s;
-        }
-
-        .benefit-item:hover { transform: translateY(-3px); border-color: var(--blue-primary); }
-        .benefit-item i { color: var(--accent-cyan); }
-        .benefit-item span { font-weight: 600; color: var(--text-white); }
-
-        /* --- TESTIMONIALS --- */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .testimonial-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .user-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .user-info h5 { color: var(--text-white); font-size: 1rem; }
-        .user-info span { font-size: 0.85rem; color: var(--text-light); }
-        .testimonial-text { font-style: italic; color: var(--text-light); }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #050911;
-            color: white;
-            padding: 80px 0 30px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo { font-size: 24px; font-weight: 700; margin-bottom: 20px; display: block; }
-        .footer-desc { color: rgba(255,255,255,0.7); font-size: 0.9rem; max-width: 300px; }
-
-        .footer-col h4 { margin-bottom: 20px; font-size: 1.1rem; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
-        .footer-col ul li a:hover { color: white; }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.5);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
-            .hero-text p { margin: 0 auto 32px; }
-            .cta-group { justify-content: center; }
-            .about-section { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            #canvas-container { height: 400px; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Mobile Menu Toggle logic needed */
-            .hamburger { display: block; font-size: 24px; color: var(--text-white); cursor: pointer; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .footer-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Helper for Hamburger (simple implementation) */
-        .hamburger { display: none; }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.5/build/spline-viewer.js"></script>
+    
+<style>
+/* ======================================================= */
+/* === CSS: ESTILOS GLOBALES Y PALETA DE COLORES OPTUS === */
+/* ======================================================= */
+
+:root {
+    --color-primary: #0c1445;
+    --color-secondary: #b2d4e0;
+    --color-accent: #66AFFF;
+    --color-white: #FFFFFF;
+    --color-light-gray: #F5F7FA;
+    --color-text-dark: #333333;
+    --color-text-light: #F0F0F0;
+    --color-gradient-start: #0c1445;
+    --color-gradient-end: #002B5B; 
+    --color-shadow: rgba(12, 20, 69, 0.15);
+}
+
+/* Tema Oscuro (Noche) */
+body.dark-theme {
+    --color-primary: #0B1120;
+    --color-secondary: #111827;
+    --color-accent: #06B6D4;
+    --color-white: #FFFFFF;
+    --color-light-gray: #1F2937;
+    --color-text-dark: #F3F4F6;
+    --color-text-light: #9CA3AF;
+    --color-gradient-start: #002B5B;
+    --color-gradient-end: #0B1120;
+    --color-shadow: rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme {
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+}
+
+body.dark-theme .header {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .nav-links a {
+    color: var(--color-primary);
+}
+
+body.dark-theme .nav-links a:hover {
+    color: var(--color-accent);
+}
+
+body.dark-theme .menu-toggle {
+    color: var(--color-primary);
+}
+
+body.dark-theme .service-card,
+body.dark-theme .benefit-card,
+body.dark-theme .portfolio-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .service-card:hover,
+body.dark-theme .benefit-card:hover,
+body.dark-theme .portfolio-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.4);
+}
+
+body.dark-theme .about,
+body.dark-theme .services,
+body.dark-theme .portfolio,
+body.dark-theme .benefits {
+    background-color: var(--color-secondary);
+}
+
+body.dark-theme .about-text .btn-secondary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border-color: var(--color-accent);
+}
+
+body.dark-theme .about-text .btn-secondary:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+body.dark-theme .service-icon {
+    color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .benefit-icon {
+    color: var(--color-accent);
+}
+
+body.dark-theme .section-title,
+body.dark-theme .section-subtitle,
+body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 {
+    color: var(--color-white);
+}
+
+body.dark-theme .hero-subtitle,
+body.dark-theme p {
+    color: var(--color-text-light);
+}
+
+body.dark-theme .trust-logos {
+    background-color: #2D3748;
+}
+
+body.dark-theme .trust-logos-container,
+body.dark-theme .trust-logos-container-reverse {
+    background: linear-gradient(90deg, #2D3748 0%, transparent 10%, transparent 90%, #2D3748 100%);
+}
+
+body.dark-theme .testimonials-section {
+    background-color: var(--color-primary);
+}
+
+body.dark-theme .testimonial-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .testimonial-text {
+    color: var(--color-white);
+}
+
+body.dark-theme .testimonial-author {
+    color: var(--color-text-light);
+}
+
+body.dark-theme .testimonial-role {
+    color: var(--color-text-light);
+}
+
+body.dark-theme .optus-animation-section {
+    background-color: var(--color-secondary);
+}
+
+body.dark-theme .cell {
+    background-color: rgba(102, 175, 255, 0.3);
+}
+
+body.dark-theme .cell-text {
+    background-color: var(--color-accent) !important;
+}
+
+body.dark-theme .cell-bg {
+    background-color: rgba(102, 175, 255, 0.2) !important;
+}
+
+body.dark-theme .footer {
+    background-color: var(--color-primary);
+}
+
+body.dark-theme .footer-col h5 {
+    color: var(--color-white);
+}
+
+body.dark-theme .footer-col a {
+    color: var(--color-text-light);
+}
+
+body.dark-theme .footer-col a:hover {
+    color: var(--color-accent);
+}
+
+body.dark-theme .footer-col p {
+    color: var(--color-text-light);
+}
+
+body.dark-theme .social-links a {
+    color: var(--color-white);
+    background-color: transparent;
+}
+
+body.dark-theme .social-links a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+body.dark-theme .footer-bottom {
+    color: var(--color-text-light);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+/* ================== */
+/* === UTILIDADES === */
+/* ================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: #6a737d;
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.25rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #4A90E2; /* Lighter shade on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--color-shadow);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+
+/* Imagenes y Logos de empresas */
+.company-logo {
+    height: 90px;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: all 0.4s ease-in-out;
+    flex-shrink: 0;
+}
+
+.company-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* ======================================= */
+/* === HEADER, NAV Y MENU RESPONSIVE === */
+/* ======================================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.nav-logo-area {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-logo-area span {
+    color: var(--color-accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-cta {
+    margin-left: auto;
+}
+
+.nav-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Menú hamburguesa (oculto en desktop) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+/* ===== BOTÓN CAMBIO DE TEMA ===== */
+.theme-switch {
+  --toggle-size: 16px;
+  margin-right: 30px;
+  --container-width: 5.625em;
+  --container-height: 2.5em;
+  --container-radius: 6.25em;
+  --container-light-bg: #3D7EAE;
+  --container-night-bg: #1D1F2C;
+  --circle-container-diameter: 3.375em;
+  --sun-moon-diameter: 2.125em;
+  --sun-bg: #ECCA2F;
+  --moon-bg: #C4C9D1;
+  --spot-color: #959DB1;
+  --circle-container-offset: calc((var(--circle-container-diameter) - var(--container-height)) / 2 * -1);
+  --stars-color: #fff;
+  --clouds-color: #F3FDFF;
+  --back-clouds-color: #AACADF;
+  --transition: .5s cubic-bezier(0, -0.02, 0.4, 1.25);
+  --circle-transition: .3s cubic-bezier(0, -0.02, 0.35, 1.17);
+}
+
+.theme-switch, .theme-switch *, .theme-switch *::before, .theme-switch *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: var(--toggle-size);
+}
+
+.theme-switch__container {
+  width: var(--container-width);
+  height: var(--container-height);
+  background-color: var(--container-light-bg);
+  border-radius: var(--container-radius);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0em -0.062em 0.062em rgba(0, 0, 0, 0.25), 0em 0.062em 0.125em rgba(255, 255, 255, 0.94);
+  transition: var(--transition);
+  position: relative;
+}
+
+.theme-switch__container::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  box-shadow: 0em 0.05em 0.187em rgba(0, 0, 0, 0.25) inset, 0em 0.05em 0.187em rgba(0, 0, 0, 0.25) inset;
+  border-radius: var(--container-radius);
+}
+
+.theme-switch__checkbox {
+  display: none;
+}
+
+.theme-switch__circle-container {
+  width: var(--circle-container-diameter);
+  height: var(--circle-container-diameter);
+  background-color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  left: var(--circle-container-offset);
+  top: var(--circle-container-offset);
+  border-radius: var(--container-radius);
+  box-shadow: inset 0 0 0 3.375em rgba(255, 255, 255, 0.1), inset 0 0 0 3.375em rgba(255, 255, 255, 0.1), 0 0 0 0.625em rgba(255, 255, 255, 0.1), 0 0 0 1.25em rgba(255, 255, 255, 0.1);
+  display: flex;
+  transition: var(--circle-transition);
+  pointer-events: none;
+}
+
+.theme-switch__sun-moon-container {
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+  width: var(--sun-moon-diameter);
+  height: var(--sun-moon-diameter);
+  margin: auto;
+  border-radius: var(--container-radius);
+  background-color: var(--sun-bg);
+  box-shadow: 0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.062em 0.062em 0em #a1872a inset;
+  filter: drop-shadow(0.062em 0.125em 0.125em rgba(0, 0, 0, 0.25)) drop-shadow(0em 0.062em 0.125em rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.theme-switch__moon {
+  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  background-color: var(--moon-bg);
+  border-radius: inherit;
+  box-shadow: 0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.062em 0.062em 0em #969696 inset;
+  transition: var(--transition);
+  position: relative;
+}
+
+.theme-switch__spot {
+  position: absolute;
+  top: 0.75em;
+  left: 0.312em;
+  width: 0.75em;
+  height: 0.75em;
+  border-radius: var(--container-radius);
+  background-color: var(--spot-color);
+  box-shadow: 0em 0.0312em 0.062em rgba(0, 0, 0, 0.25) inset;
+}
+
+.theme-switch__spot:nth-of-type(2) {
+  width: 0.375em;
+  height: 0.375em;
+  top: 0.937em;
+  left: 1.375em;
+}
+
+.theme-switch__spot:nth-last-of-type(3) {
+  width: 0.25em;
+  height: 0.25em;
+  top: 0.312em;
+  left: 0.812em;
+}
+
+.theme-switch__clouds {
+  width: 1.25em;
+  height: 1.25em;
+  background-color: var(--clouds-color);
+  border-radius: var(--container-radius);
+  position: absolute;
+  bottom: -0.625em;
+  left: 0.312em;
+  box-shadow: 0.937em 0.312em var(--clouds-color), -0.312em -0.312em var(--back-clouds-color), 1.437em 0.375em var(--clouds-color), 0.5em -0.125em var(--back-clouds-color), 2.187em 0 var(--clouds-color), 1.25em -0.062em var(--back-clouds-color), 2.937em 0.312em var(--clouds-color), 2em -0.312em var(--back-clouds-color), 3.625em -0.062em var(--clouds-color), 2.625em 0em var(--back-clouds-color), 4.5em -0.312em var(--clouds-color), 3.375em -0.437em var(--back-clouds-color), 4.625em -1.75em 0 0.437em var(--clouds-color), 4em -0.625em var(--back-clouds-color), 4.125em -2.125em 0 0.437em var(--back-clouds-color);
+  transition: 0.5s cubic-bezier(0, -0.02, 0.4, 1.25);
+}
+
+.theme-switch__stars-container {
+  position: absolute;
+  color: var(--stars-color);
+  top: -100%;
+  left: 0.312em;
+  width: 2.75em;
+  height: auto;
+  transition: var(--transition);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container {
+  background-color: var(--container-night-bg);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__circle-container {
+  left: calc(100% - var(--circle-container-offset) - var(--circle-container-diameter));
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__circle-container:hover {
+  left: calc(100% - var(--circle-container-offset) - var(--circle-container-diameter) - 0.187em);
+}
+
+.theme-switch__circle-container:hover {
+  left: calc(var(--circle-container-offset) + 0.187em);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__moon {
+  transform: translate(0);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__clouds {
+  bottom: -4.062em;
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__stars-container {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ===== GALERÍA INTERACTIVA MWG ===== */
+.mwg_effect000 {
+    height: auto;
+    overflow: visible;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-radius: 15px;
+    padding: 20px;
+    margin-left: 80px;
+}
+
+.mwg_effect000 .medias {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2vw;
+}
+.mwg_effect000 .medias img {
+    width: 6vw;
+    height: 6vw;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    pointer-events: none;
+    will-change: transform;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(102, 175, 255, 0.2);
+    transition: border-color 0.3s ease;
+}
+.mwg_effect000 .media:hover img {
+    border-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .mwg_effect000 .medias {
+        gap: 3vw;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .mwg_effect000 .medias img {
+        width: 12vw;
+        height: 12vw;
+    }
+}
+
+/* Responsive Nav */
+@media (max-width: 968px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        gap: 0.5rem;
+        transform: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .nav-cta {
+        margin-left: 0;
+        margin-right: 3rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-cta {
+        display: none;
+    }
+}
+
+/* =========================== */
+/* === 1. HERO PRINCIPAL === */
+/* =========================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* Fondo con gradiente sutil de azul */
+    background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-primary) 100%);
+}
+
+/* Three.js Canvas Container */
+#three-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: var(--color-white);
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 5rem; /* Espacio para el header fijo */
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    color: var(--color-secondary);
+}
+
+.hero-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.hero .btn-primary {
+    background-color: var(--color-accent);
+}
+
+.hero .btn-secondary {
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.hero .btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+/* Media Query para Hero */
+@media (max-width: 900px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+}
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-cta-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* ====================================== */
+/* === 2. LOGOS DE CONFIANZA (TRUST) === */
+/* ====================================== */
+
+.trust-logos {
+    padding: 5rem 0;
+    background-color: var(--color-light-gray);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.trust-logos-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.trust-logos-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    animation: scroll-logos 30s linear infinite;
+    width: fit-content;
+}
+
+.trust-logos-container:hover {
+    animation-play-state: paused;
+}
+
+.trust-logos-container-reverse {
+    animation: scroll-logos-reverse 20s linear infinite;
+}
+
+@keyframes scroll-logos {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-logos-reverse {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .company-logo {
+        height: 55px;
+    }
+    .trust-logos-container {
+        gap: 2.5rem;
+    }
+}
+
+/* ============================= */
+/* === 3. SECCIÓN NOSOTROS/BOLIVIA === */
+/* ============================= */
+
+.about {
+    padding: 6rem 0;
+    background-color: var(--color-white);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-text h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #6a737d;
+    margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 50%;
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    display: block;
+}
+
+.bolivia-flag {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bolivia-flag span {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #D52B1E 33.3%, #F9E300 33.3%, #F9E300 66.6%, #0076a8 66.6%);
+    border: 1px solid #ccc;
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text, .about-image {
+        max-width: 100%;
+    }
+}
+
+/* =========================== */
+/* === 4. SECCIÓN SERVICIOS === */
+/* =========================== */
+
+.services {
+    padding: 6rem 0;
+    background-color: var(--color-light-gray);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--color-white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid transparent;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px var(--color-shadow);
+    border-color: var(--color-secondary);
+}
+
+.service-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.service-card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    color: #6a737d;
+}
+
+/* =============================== */
+/* === 5. SECCIÓN PORTAFOLIO === */
+/* =============================== */
+
+.portfolio {
+    padding: 6rem 0;
+    background-color: var(--color-white);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background-color: var(--color-light-gray);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.portfolio-item-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-item-image {
+    transform: scale(1.05);
+}
+
+.portfolio-item-info {
+    padding: 1.5rem;
+}
+
+.portfolio-item-info h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-item-info p {
+    color: #6a737d;
+    font-size: 0.95rem;
+}
+
+/* =============================== */
+/* === 6. SECCIÓN BENEFICIOS === */
+/* =============================== */
+
+.benefits {
+    padding: 6rem 0;
+    background-color: var(--color-primary); /* Invertir colores */
+}
+
+.benefits .section-title, .benefits .section-subtitle {
+    color: var(--color-white);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefit-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.benefit-card h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.benefit-card p {
+    color: var(--color-light-gray);
+}
+
+/* ================================ */
+/* === 7. SECCIÓN TESTIMONIOS === */
+/* ================================ */
+
+.testimonials {
+    padding: 6rem 0;
+    background-color: var(--color-primary);
+}
+
+.testimonials .section-title, .testimonials .section-subtitle {
+    color: var(--color-white);
+}
+
+.swiper-container {
+    padding: 2rem 0;
+}
+
+.testimonial-slide {
+    background-color: var(--color-light-gray);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.testimonial-quote::before {
+    content: "“";
+    font-size: 3rem;
+    line-height: 0;
+    color: var(--color-accent);
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.2;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.author-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    border: 3px solid var(--color-accent);
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: #6a737d;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--color-primary) !important;
+}
+
+/* ===================== */
+/* === 8. FOOTER === */
+/* ===================== */
+
+.footer {
+    background-color: var(--color-primary);
+    padding: 4rem 0 1.5rem;
+    color: var(--color-light-gray);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--color-white);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col a {
+    color: var(--color-light-gray);
+    text-decoration: none;
+    line-height: 2;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-logo-area {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+.footer-logo-area span {
+    color: var(--color-accent);
+}
+
+.social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: var(--color-light-gray);
+}
+
+.social-links a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-col:first-child {
+        grid-column: span 2;
+    }
+}
+/* Estilos para el LOGO de OPTUS */
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    text-decoration: none;
+    /* LOGO DE OPTUS AQUÍ */
+}
+.logo-white {
+    color: var(--color-white);
+}
+
+/* ===================================== */
+/* === ANIMACIÓN MALLA DE PUNTOS OPTUS HORIZONTAL === */
+/* ===================================== */
+.optus-animation-section {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    position: relative;
+    z-index: 1;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+}
+
+.grid {
+    --gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    position: relative;
+    scale: 1;
+}
+
+.row {
+    display: flex;
+    gap: var(--gap);
+}
+
+.cell {
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    will-change: transform;
+    cursor: pointer;
+    transition: transform 0.2s ease-out, background-color 0.3s ease;
+}
+
+.cell-text {
+    background-color: var(--color-secondary);
+    opacity: 0.9;
+}
+
+.cell-bg {
+    background-color: #1E2C60;
+    opacity: 0.5;
+}
+
+.cell:hover {
+    background-color: #FFFFFF;
+}
+
+</style>
 </head>
 <body>
 
-    <header id="header">
+    <header class="header" id="header">
         <div class="container">
-            <nav>
-                <a href="/OPTUSLOGO.png" class="logo">
-                    <i class="fa-solid fa-cube"></i> OPTUS
+            <nav class="nav">
+                <a href="#hero" class="logo nav-logo-area">
+                    <video autoplay loop muted playsinline style="height: 70px; width: auto; object-fit: contain;">
+                        <source src="anim/animado.mp4" type="video/mp4">
+                        <img src="OPTUSLOGO.png" alt="OPTUS Logo" style="height: 70px; width: auto;">
+                    </video>
                 </a>
-                <div class="nav-links">
-                    <a href="#inicio">Inicio</a>
-                    <a href="#servicios">Servicios</a>
-                    <a href="#nosotros">Nosotros</a>
-                    <a href="#casos">Casos</a>
-                    <a href="#contacto" class="btn-nav">Contacto</a>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about">NOSOTROS</a></li>
+                    <li><a href="#services">SERVICIOS</a></li>
+                    <li><a href="#portfolio">PORTAFOLIO</a></li>
+                    <li><a href="#benefits">BENEFICIOS</a></li>
+                </ul>
+                <div style="display: flex; align-items: center; gap: 15px; margin-left: auto;">
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-switch__checkbox" id="theme-toggle">
+                    <div class="theme-switch__container">
+                        <div class="theme-switch__clouds"></div>
+                        <div class="theme-switch__stars-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 21.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <div class="theme-switch__circle-container">
+                            <div class="theme-switch__sun-moon-container">
+                                <div class="theme-switch__moon">
+                                    <div class="theme-switch__spot"></div>
+                                    <div class="theme-switch__spot"></div>
+                                    <div class="theme-switch__spot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <a href="#contact" class="btn btn-primary nav-cta">Comencemos</a>
                 </div>
-                <div class="hamburger">
-                    <i class="fa-solid fa-bars"></i>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-bg-shape"></div>
+    <section class="hero" id="hero">
+        <canvas id="three-canvas"></canvas>
+
         <div class="container hero-content">
-            <div class="hero-text" data-aos="fade-up">
-                <h1>Automatización inteligente para el futuro de <span class="text-gradient">Bolivia</span>.</h1>
-                <p>OPTUS transforma tu empresa con agentes de IA y sistemas integrados. La plataforma definitiva para escalar tu negocio en la era digital.</p>
-                <div class="cta-group">
-                    <button class="btn-primary">
-                        Comencemos <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                    <button class="btn-secondary">
-                        Ver Demo
-                    </button>
-                </div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                La Automatización en Bolivia al Alcance de un Mensaje.
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+                Agentes de IA que venden, agendan y cobran por WhatsApp. Simple, rápido y sin configuraciones complejas para tu negocio en crecimiento.
+            </p>
+            <div class="hero-cta-group" data-aos="fade-up" data-aos-delay="500">
+                <a href="#contact" class="btn btn-primary btn-lg">
+                    Automatiza Ahora
+                </a>
+                <a href="#services" class="btn btn-secondary btn-lg">
+                    Ver Servicios
+                </a>
             </div>
-            <div id="canvas-container" data-aos="fade-left"></div>
         </div>
     </section>
 
-    <div class="logos-section bg-gray">
-        <div class="container">
-            <p class="logos-title">Nos integramos con tecnología de clase mundial</p>
-            <div class="logos-grid">
-                <i class="fa-brands fa-google" title="Google"></i>
-                <i class="fa-brands fa-microsoft" title="Microsoft"></i>
-                <i class="fa-brands fa-aws" title="Amazon AWS"></i>
-                <i class="fa-brands fa-meta" title="Meta"></i> 
-                <i class="fa-brands fa-stripe" title="Stripe"></i>
-                <i class="fa-brands fa-docker" title="Docker"></i>
+    <section class="trust-logos">
+        <div class="trust-logos-wrapper">
+            <!-- Primera fila de logos -->
+            <div class="trust-logos-container">
+                <!-- Primera secuencia de logos -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Cloud" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft Azure" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon AWS" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="company-logo">
+                <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" class="company-logo">
+                <img src="https://logo.clearbit.com/meta.com" alt="Meta" class="company-logo">
+                <img src="https://logo.clearbit.com/ibm.com" alt="IBM Watson" class="company-logo">
+                <img src="https://logo.clearbit.com/oracle.com" alt="Oracle" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="company-logo">
+                <!-- Segunda secuencia (duplicado para loop infinito) -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Cloud" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft Azure" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon AWS" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="company-logo">
+                <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" class="company-logo">
+                <img src="https://logo.clearbit.com/meta.com" alt="Meta" class="company-logo">
+                <img src="https://logo.clearbit.com/ibm.com" alt="IBM Watson" class="company-logo">
+                <img src="https://logo.clearbit.com/oracle.com" alt="Oracle" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="company-logo">
+            </div>
+            
+            <!-- Segunda fila de logos (dirección inversa) -->
+            <div class="trust-logos-container trust-logos-container-reverse">
+                <!-- Primera secuencia de logos -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Cloud" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft Azure" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon AWS" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="company-logo">
+                <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" class="company-logo">
+                <img src="https://logo.clearbit.com/meta.com" alt="Meta" class="company-logo">
+                <img src="https://logo.clearbit.com/ibm.com" alt="IBM Watson" class="company-logo">
+                <img src="https://logo.clearbit.com/oracle.com" alt="Oracle" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="company-logo">
+                <!-- Segunda secuencia (duplicado para loop infinito) -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Cloud" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft Azure" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon AWS" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="company-logo">
+                <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" class="company-logo">
+                <img src="https://logo.clearbit.com/meta.com" alt="Meta" class="company-logo">
+                <img src="https://logo.clearbit.com/ibm.com" alt="IBM Watson" class="company-logo">
+                <img src="https://logo.clearbit.com/oracle.com" alt="Oracle" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="company-logo">
             </div>
         </div>
-    </div>
+    </section>
 
-    <section id="nosotros" class="section-padding">
-        <div class="container">
-            <div class="about-section">
-                <div class="about-text" data-aos="fade-right">
-                    <div class="bolivia-badge">
+    <section class="about" id="about">
+        <div class="container about-content">
+            <div class="about-text" data-aos="fade-right">
+                <h3>Transformación Digital hecha en <div class="bolivia-badge"></div>Bolivia</span>.</h3>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/32px-Flag_of_Bolivia.svg.png" alt="Bolivia" style="width: 20px; height: auto;">
-                        Orgullosamente Bolivianos
+                    
+                <p><strong>OPTUS</strong> es la plataforma de <strong>agentes inteligentes</strong> diseñada para que emprendedores, jóvenes y <em>startups</em> puedan <strong>automatizar su negocio sin conocimientos técnicos</strong>.</p>
+                <p>Mediante APIs de mensajería y servicios en la nube, convertimos <strong>WhatsApp en un asistente digital 24/7</strong> que vende, agenda, cobra, responde clientes y genera reportes con la misma facilidad con la que se envía un mensaje.</p>
+                <p>Diseñamos esta propuesta para dueños de MYPES y nuevos emprendimientos que necesitan <strong>resultados inmediatos</strong>, escalabilidad y una herramienta moderna lista para la nueva generación que exige soluciones <strong>ágiles, intuitivas y efectivas</strong>.</p>
+                <a href="#contact" class="btn btn-secondary" style="margin-top: 1rem;">Conoce a nuestro equipo</a>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                <section class="mwg_effect000">
+                    <div class="medias">
+                        <div class="media"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400" alt="WhatsApp Business"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400" alt="Chatbot AI"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400" alt="Automatización"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400" alt="Emprendedores"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="MYPES Bolivia"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400" alt="Startups"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400" alt="Cloud Services"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400" alt="Digital Team"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400" alt="Mobile Business"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400" alt="Data Analytics"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400" alt="Customer Service"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400" alt="Ventas Online"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400" alt="Equipo Remoto"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400" alt="Innovación Digital"></div>
+                        <div class="media"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400" alt="Colaboración"></div>
                     </div>
-                    <h2 class="section-title">Ingeniería local, impacto global.</h2>
-                    <p class="section-desc">
-                        En <strong>OPTUS</strong>, entendemos que el mercado boliviano necesita soluciones robustas y accesibles. No solo implementamos software; construimos el ecosistema digital que permite a las empresas de La Paz, Santa Cruz y todo el país competir internacionalmente.
-                    </p>
-                    <p style="color: var(--text-light);">
-                        Somos pioneros en integrar Inteligencia Artificial generativa con procesos operativos tradicionales, reduciendo la carga manual y potenciando la creatividad humana.
-                    </p>
-                </div>
-                <div class="about-img" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1553877616-15280ed54729?q=80&w=2070&auto=format&fit=crop" alt=" OPTUS ">
-                </div>
+                </section>
             </div>
         </div>
     </section>
 
-    <section id="servicios" class="section-padding bg-gray">
+    <section class="services" id="services">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="section-title">Soluciones Integrales</h2>
-                <p class="section-desc">Todo lo que necesitas para automatizar tu flujo de trabajo.</p>
-            </div>
+            <h2 class="section-title" data-aos="fade-up">Nuestros Servicios de Impacto</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Soluciones modulares que se integran a tu flujo de trabajo de manera inmediata.</p>
 
             <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                    <h3>Agentes de IA</h3>
-                    <p class="text-muted">Chatbots y asistentes virtuales entrenados con tus propios datos para atención 24/7 y toma de decisiones.</p>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h4>Automatización Empresarial</h4>
+                    <p>Flujos de trabajo completos sin código: desde la captación de leads hasta el cierre de ventas y la facturación automática.</p>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
-                    <h3>Integración de APIs</h3>
-                    <p class="text-muted">Conectamos tu CRM, ERP y herramientas de marketing para que los datos fluyan sin intervención manual.</p>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Agentes de IA Personalizados</h4>
+                    <p>Entrena a tu Agente de WhatsApp con la información de tu negocio para que sea tu vendedor o soporte 24/7 más eficiente.</p>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>Automatización B2B</h3>
-                    <p class="text-muted">Optimización de procesos de facturación, logística y gestión de clientes mediante workflows inteligentes.</p>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+                    <h4>Integración de Sistemas Inteligentes</h4>
+                    <p>Conecta OPTUS con tus sistemas de pago, CRM, inventario y más para tener un ecosistema digital totalmente sincronizado.</p>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="icon-box"><i class="fa-solid fa-code"></i></div>
-                    <h3>Consultoría Digital</h3>
-                    <p class="text-muted">Auditoría tecnológica y hoja de ruta para la transformación digital de tu empresa en Bolivia.</p>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Consultoría en Digitalización Ágil</h4>
+                    <p>Asesoría estratégica para identificar y optimizar los puntos débiles de tu flujo comercial con tecnología de punta.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="service-icon"><i class="fas fa-comments"></i></div>
+                    <h4>Asistentes Virtuales Multicanal</h4>
+                    <p>Implementa chatbots inteligentes en WhatsApp, Messenger, Instagram y tu sitio web con una sola plataforma centralizada.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="700" style="background: linear-gradient(135deg, var(--color-accent) 0%, #4A90E2 100%); color: white; cursor: pointer;" onclick="window.location.href='#contact'">
+                    <div class="service-icon" style="background-color: rgba(255, 255, 255, 0.2); color: white;"><i class="fas fa-rocket"></i></div>
+                    <h4 style="color: white;">¿Listo para Comenzar?</h4>
+                    <p style="color: rgba(255, 255, 255, 0.95);">Descubre más servicios personalizados para tu negocio. Agenda una demo gratuita y transforma tu empresa hoy.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding">
-        <div class="container text-center">
-            <h2 class="section-title">¿Por qué elegir OPTUS?</h2>
-            <div class="benefits-wrapper" data-aos="zoom-in">
-                <div class="benefit-item"><i class="fa-solid fa-bolt"></i> <span>Mayor Velocidad</span></div>
-                <div class="benefit-item"><i class="fa-solid fa-coins"></i> <span>Reducción de Costos</span></div>
-                <div class="benefit-item"><i class="fa-solid fa-lock"></i> <span>Seguridad de Datos</span></div>
-                <div class="benefit-item"><i class="fa-solid fa-expand"></i> <span>Escalabilidad Total</span></div>
-                <div class="benefit-item"><i class="fa-solid fa-headset"></i> <span>Soporte 24/7</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="casos" class="section-padding bg-gray">
+    <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2 class="section-title text-center">Casos de Éxito</h2>
+            <h2 class="section-title" data-aos="fade-up">Casos de Éxito Instantáneo</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Resultados tangibles. Ve cómo OPTUS transforma negocios reales.</p>
+
             <div class="portfolio-grid">
-                <div class="portfolio-card" data-aos="fade-up">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Dashboard Financiero">
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Fintech Boliviana</h4>
-                        <p>Automatización de conciliación bancaria reduciendo el tiempo operativo en un 80%.</p>
+                <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Caso de Éxito Chatbot" class="portfolio-item-image">
+                    <div class="portfolio-item-info">
+                        <h4>Retail: Soporte 24/7</h4>
+                        <p>Reducción del 80% en tickets de soporte manual tras implementar Agente de IA para preguntas frecuentes y seguimiento de pedidos.</p>
                     </div>
                 </div>
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Logística">
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Logística La Paz</h4>
-                        <p>Sistema de tracking predictivo con IA para rutas de distribución en el alto.</p>
+                <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Caso de Éxito Dashboard" class="portfolio-item-image">
+                    <div class="portfolio-item-info">
+                        <h4>Servicios: Crecimiento de Leads</h4>
+                        <p>Doble de leads calificados al mes gracias a la automatización del formulario de contacto y seguimiento inicial por IA.</p>
                     </div>
                 </div>
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Atención al cliente">
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Retail Santa Cruz</h4>
-                        <p>Implementación de agentes de IA para atención al cliente vía WhatsApp Business.</p>
+                <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Caso de Éxito Pagos" class="portfolio-item-image">
+                    <div class="portfolio-item-info">
+                        <h4>E-commerce: Cobros y Facturación</h4>
+                        <p>Automatización completa del proceso de cobro y emisión de facturas, eliminando errores humanos y optimizando el tiempo.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding">
+    <section class="benefits" id="benefits">
         <div class="container">
-            <h2 class="section-title text-center">Confianza Empresarial</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="user-profile">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" class="user-img" alt="CEO">
-                        <div class="user-info">
-                            <h5>Carlos M.</h5>
-                            <span>CEO, TechBolivia</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"OPTUS cambió la forma en que operamos. La integración de nuestros sistemas fue impecable y el diseño de la solución es muy elegante."</p>
+            <h2 class="section-title" data-aos="fade-up">Beneficios Inmediatos de OPTUS</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Más que una herramienta, una palanca para el crecimiento.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-right" data-aos-delay="200">
+                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                    <h4>Productividad x10</h4>
+                    <p>Libera a tu equipo de tareas repetitivas. Dedica el tiempo a la estrategia y la creatividad, no a la operación manual.</p>
                 </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="user-profile">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" class="user-img" alt="Gerente">
-                        <div class="user-info">
-                            <h5>Sofia R.</h5>
-                            <span>Gerente de Marketing</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"La automatización de nuestros leads nos permitió duplicar las ventas en tres meses. El equipo de OPTUS es experto en IA."</p>
+                <div class="benefit-card" data-aos="fade-right" data-aos-delay="300">
+                    <div class="benefit-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h4>Reducción de Costos</h4>
+                    <p>Menos errores, menos personal operativo. La IA trabaja sin descanso por una fracción del costo de un empleado tradicional.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-right" data-aos-delay="400">
+                    <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+                    <h4>Escalabilidad Sin Límites</h4>
+                    <p>Tu agente de IA atiende a 10 o a 10,000 clientes con la misma eficiencia. Escala tu negocio sin preocuparte por la infraestructura.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-right" data-aos-delay="500">
+                    <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Innovación Continua</h4>
+                    <p>Accede a las últimas tendencias en IA y automatización sin código. Mantente siempre un paso adelante de la competencia.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-right" data-aos-delay="600">
+                    <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                    <h4>Disponibilidad 24/7</h4>
+                    <p>Tus agentes de IA nunca duermen. Atiende clientes, cierra ventas y resuelve dudas a cualquier hora, incluso fines de semana y feriados.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-right" data-aos-delay="700">
+                    <div class="benefit-icon"><i class="fas fa-code"></i></div>
+                    <h4>Sin Conocimientos Técnicos</h4>
+                    <p>Diseñado para emprendedores y MYPES. No necesitas programar ni contratar desarrolladores. Implementación simple con WhatsApp que ya conoces.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contacto">
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="/OPTUSLOGO.jpg" class="footer-logo">OPTUS</a>
-                    <p class="footer-desc">
-                        Liderando la revolución de la automatización en Bolivia. Tecnología de punta para empresas que miran al futuro.
-                    </p>
+            <h2 class="section-title" data-aos="fade-up">Lo Que Dicen Nuestros Clientes</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">La nueva generación de emprendedores ya confía en OPTUS.</p>
+
+            <div class="swiper-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide testimonial-slide">
+                        <p class="testimonial-quote">“Pasamos de perder 5 ventas diarias por no responder a tiempo a tener un cierre del 90% gracias al agente de WhatsApp. La implementación fue ridículamente simple.”</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Juan Pérez" class="author-photo">
+                            <span class="author-name">Juan Pérez</span>
+                            <span class="author-title">CEO, Startup Tech</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide testimonial-slide">
+                        <p class="testimonial-quote">“La integración con nuestro sistema de cobros fue mágica. Ya no tengo que preocuparme por las conciliaciones. OPTUS es la solución definitiva para MYPES.”</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de Sofía Méndez" class="author-photo">
+                            <span class="author-name">Sofía Méndez</span>
+                            <span class="author-title">Dueña de Boutique Digital</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide testimonial-slide">
+                        <p class="testimonial-quote">“Necesitábamos algo rápido y efectivo. OPTUS nos dio un sistema de reportes claro que nos permite tomar mejores decisiones al instante.”</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/19.jpg" alt="Foto de Ramiro Flores" class="author-photo">
+                            <span class="author-name">Ramiro Flores</span>
+                            <span class="author-title">Gerente de Operaciones</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Empresa</h4>
-                    <ul>
-                        <li><a href="#">Sobre Nosotros</a></li>
-                        <li><a href="#">Carreras</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Prensa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Servicios</h4>
-                    <ul>
-                        <li><a href="#">Automatización</a></li>
-                        <li><a href="#">Agentes IA</a></li>
-                        <li><a href="#">Consultoría</a></li>
-                        <li><a href="#">Soporte</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li><a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                        <li>hola@optus.bo</li>
-                    </ul>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animación Malla de Puntos OPTUS Horizontal -->
+    <section class="optus-animation-section">
+        <div class="grid-container">
+            <div class="grid" id="dot-grid"></div>
+        </div>
+    </section>
+
+    <!-- Botón Solicita una Demo fuera del footer -->
+    <section style="background: var(--color-primary); padding: 0 0 3rem 0; text-align: center;">
+        <div class="container">
+            <a href="#contact" class="btn btn-primary btn-lg">Solicita una Demo</a>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <a href="#hero" class="logo footer-logo-area">
+                    OPT<span>US</span>
+                </a>
+                <p>La plataforma de agentes inteligentes líder en automatización para la nueva generación de negocios en Bolivia.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1Ce4TjnxRU/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/OptusAut" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/optusaut/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2025 OPTUS Bolivia. Todos los derechos reservados.
+            <div class="footer-col">
+                <h5>Compañía</h5>
+                <ul>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#portfolio">Casos de Éxito</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
+                    <li><a href="#">Trabaja con Nosotros</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h5>Servicios</h5>
+                <ul>
+                    <li><a href="#services">Automatización</a></li>
+                    <li><a href="#services">Agentes de IA</a></li>
+                    <li><a href="#services">Integraciones</a></li>
+                    <li><a href="#services">Consultoría</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contacto</h5>
+                <p>La Paz, Bolivia</p>
+                <p>optus.aut@gmail.com</p>
+                <p>77379190</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            |  &copy; 2025 OPTUS. Todos los derechos reservados| 
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script>
-        // --- 1. INICIALIZAR AOS (Scroll Animations) ---
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 100
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+<script src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    // Inicialización de AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        easing: 'ease-in-out',
+        offset: 100,
+    });
+
+    // Inicialización de Swiper para Testimonios
+    const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        }
+    });
+
+    // ===================================
+    // === NAVEGACIÓN Y SCROLL HEADER ===
+    // ===================================
+
+    const header = document.getElementById('header');
+    const navLinks = document.getElementById('nav-links');
+    const menuToggle = document.getElementById('menu-toggle');
+
+    // Toggle menú responsive
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Cambiar icono de hamburguesa a cerrar
+        menuToggle.querySelector('i').classList.toggle('fa-bars');
+        menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            }
+        });
+    });
+
+    // Efecto de Header al hacer scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // ===========================================
+    // === THREE.JS: ANIMACIÓN 3D INTERACTIVA ===
+    // ===========================================
+
+    const canvas = document.getElementById('three-canvas');
+    if (canvas) {
+        const sizes = { width: window.innerWidth, height: window.innerHeight };
+        
+        // Escena y Cámara
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
+        camera.position.z = 5;
+
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        renderer.setSize(sizes.width, sizes.height);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        // Objeto: Icosaedro "Network"
+        const geometry = new THREE.IcosahedronGeometry(2.2, 1);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x0A84FF, // Azul OPTUS
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        // Partículas internas para dar profundidad
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 200;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 6; // Spread
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.05,
+            color: 0x002B5B // Azul profundo
+        });
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // Luces
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        // Interacción con el Mouse
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        window.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - windowHalfX);
+            mouseY = (event.clientY - windowHalfY);
         });
 
-        // --- 2. GSAP ENTRY ANIMATIONS ---
-        gsap.from("header", { duration: 1, y: -100, opacity: 0, ease: "power3.out", delay: 0.2 });
-
-        // --- 3. THREE.JS (Animación 3D en Hero) ---
-        const initThreeJS = () => {
-            const container = document.getElementById('canvas-container');
-            if (!container) return;
-
-            // Escena y Cámara
-            const scene = new THREE.Scene();
-            // Fondo transparente para que se vea el CSS
-            
-            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.z = 5;
-
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            container.appendChild(renderer.domElement);
-
-            // Objeto: Icosaedro "Network"
-            const geometry = new THREE.IcosahedronGeometry(2.2, 1);
-            const material = new THREE.MeshBasicMaterial({ 
-                color: 0x0A84FF, // Azul OPTUS
-                wireframe: true,
-                transparent: true,
-                opacity: 0.3
-            });
-            const sphere = new THREE.Mesh(geometry, material);
-            scene.add(sphere);
-
-            // Partículas internas para dar profundidad
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 200;
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for(let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 6; // Spread
+        // GSAP ScrollTrigger para interactividad 3D
+        gsap.registerPlugin(ScrollTrigger);
+        
+        ScrollTrigger.create({
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.5,
+            onUpdate: (self) => {
+                // Rotación y escala basada en scroll
+                sphere.rotation.x = self.progress * Math.PI * 0.5;
+                sphere.rotation.y = self.progress * Math.PI * 1.5;
+                
+                const scale = 1 + (self.progress * 0.5);
+                sphere.scale.set(scale, scale, scale);
+                
+                // Mover cámara
+                const zDistance = 5 + (self.progress * -2);
+                camera.position.z = zDistance;
             }
+        });
 
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.05,
-                color: 0x002B5B // Azul profundo
-            });
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
+        // Animación Loop
+        const animate = () => {
+            requestAnimationFrame(animate);
 
-            // Luces (aunque BasicMaterial no las necesita, es bueno para futura expansión)
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
+            targetX = mouseX * 0.001;
+            targetY = mouseY * 0.001;
 
-            // Interacción con el Mouse
-            let mouseX = 0;
-            let mouseY = 0;
-            let targetX = 0;
-            let targetY = 0;
+            // Rotación suave de la esfera
+            sphere.rotation.y += 0.005;
+            sphere.rotation.x += 0.002;
 
-            const windowHalfX = window.innerWidth / 2;
-            const windowHalfY = window.innerHeight / 2;
+            // Rotación interactiva con easing
+            sphere.rotation.y += 0.05 * (targetX - sphere.rotation.y);
+            sphere.rotation.x += 0.05 * (targetY - sphere.rotation.x);
 
-            document.addEventListener('mousemove', (event) => {
-                mouseX = (event.clientX - windowHalfX);
-                mouseY = (event.clientY - windowHalfY);
-            });
+            // Rotación de partículas opuesta
+            particlesMesh.rotation.y -= 0.002;
 
-            // Animación Loop
-            const animate = () => {
-                requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        };
 
-                targetX = mouseX * 0.001;
-                targetY = mouseY * 0.001;
+        animate();
 
-                // Rotación suave de la esfera
-                sphere.rotation.y += 0.005;
-                sphere.rotation.x += 0.002;
+        // Responsive Resize
+        window.addEventListener('resize', () => {
+            sizes.width = window.innerWidth;
+            sizes.height = window.innerHeight;
+            
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
+            
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        });
+    }
 
-                // Rotación interactiva con easing
-                sphere.rotation.y += 0.05 * (targetX - sphere.rotation.y);
-                sphere.rotation.x += 0.05 * (targetY - sphere.rotation.x);
+</script>
 
-                // Rotación de partículas opuesta
-                particlesMesh.rotation.y -= 0.002;
+    <script>
+        // === ANIMACIÓN MALLA DE PUNTOS OPTUS HORIZONTAL ===
+        const x_max = 42;
+        const y_max = 8;
+        const grid_el = document.getElementById('dot-grid');
 
-                renderer.render(scene, camera);
-            };
+        const generateGrid = () => {
+            for (let y = 0; y < y_max; y++) {
+                const row_el = document.createElement('div');
+                row_el.classList.add('row');
+                for (let x = 0; x < x_max; x++) {
+                    const cell_el = document.createElement('div');
+                    cell_el.classList.add('cell');
+                    cell_el.setAttribute('data-x', x);
+                    cell_el.setAttribute('data-y', y);
+                    row_el.appendChild(cell_el);
+                }
+                grid_el.appendChild(row_el);
+            }
+        };
+        generateGrid();
 
-            animate();
+        const rows = [...document.querySelectorAll('#dot-grid .row')];
+        const cells = [...document.querySelectorAll('#dot-grid .cell')];
 
-            // Responsive Resize
-            window.addEventListener('resize', () => {
-                camera.aspect = container.clientWidth / container.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(container.clientWidth, container.clientHeight);
+        // Matriz horizontal: y (filas) x (columnas)
+        const TEXT_SHAPE = [];
+        for (let y = 0; y < y_max; y++) {
+            TEXT_SHAPE[y] = Array(x_max).fill(0);
+        }
+
+        // O (columnas 2-8)
+        TEXT_SHAPE[1][2] = 0; TEXT_SHAPE[1][3] = 1; TEXT_SHAPE[1][4] = 1; TEXT_SHAPE[1][5] = 1; TEXT_SHAPE[1][6] = 1; TEXT_SHAPE[1][7] = 1; TEXT_SHAPE[1][8] = 0;
+        TEXT_SHAPE[2][2] = 1; TEXT_SHAPE[2][3] = 1; TEXT_SHAPE[2][4] = 1; TEXT_SHAPE[2][5] = 0; TEXT_SHAPE[2][6] = 1; TEXT_SHAPE[2][7] = 1; TEXT_SHAPE[2][8] = 1;
+        TEXT_SHAPE[3][2] = 1; TEXT_SHAPE[3][3] = 1; TEXT_SHAPE[3][4] = 0; TEXT_SHAPE[3][5] = 0; TEXT_SHAPE[3][6] = 0; TEXT_SHAPE[3][7] = 1; TEXT_SHAPE[3][8] = 1;
+        TEXT_SHAPE[4][2] = 1; TEXT_SHAPE[4][3] = 1; TEXT_SHAPE[4][4] = 0; TEXT_SHAPE[4][5] = 0; TEXT_SHAPE[4][6] = 0; TEXT_SHAPE[4][7] = 1; TEXT_SHAPE[4][8] = 1;
+        TEXT_SHAPE[5][2] = 1; TEXT_SHAPE[5][3] = 1; TEXT_SHAPE[5][4] = 1; TEXT_SHAPE[5][5] = 0; TEXT_SHAPE[5][6] = 1; TEXT_SHAPE[5][7] = 1; TEXT_SHAPE[5][8] = 1;
+        TEXT_SHAPE[6][2] = 0; TEXT_SHAPE[6][3] = 1; TEXT_SHAPE[6][4] = 1; TEXT_SHAPE[6][5] = 1; TEXT_SHAPE[6][6] = 1; TEXT_SHAPE[6][7] = 1; TEXT_SHAPE[6][8] = 0;
+        
+        // P (columnas 10-16)
+        TEXT_SHAPE[1][10] = 0; TEXT_SHAPE[1][11] = 1; TEXT_SHAPE[1][12] = 1; TEXT_SHAPE[1][13] = 1; TEXT_SHAPE[1][14] = 1; TEXT_SHAPE[1][15] = 1; TEXT_SHAPE[1][16] = 0;
+        TEXT_SHAPE[2][10] = 1; TEXT_SHAPE[2][11] = 1; TEXT_SHAPE[2][12] = 1; TEXT_SHAPE[2][13] = 1; TEXT_SHAPE[2][14] = 1; TEXT_SHAPE[2][15] = 1; TEXT_SHAPE[2][16] = 1;
+        TEXT_SHAPE[3][10] = 1; TEXT_SHAPE[3][11] = 1; TEXT_SHAPE[3][12] = 1; TEXT_SHAPE[3][13] = 0; TEXT_SHAPE[3][14] = 0; TEXT_SHAPE[3][15] = 1; TEXT_SHAPE[3][16] = 1;
+        TEXT_SHAPE[4][10] = 1; TEXT_SHAPE[4][11] = 1; TEXT_SHAPE[4][12] = 1; TEXT_SHAPE[4][13] = 1; TEXT_SHAPE[4][14] = 1; TEXT_SHAPE[4][15] = 1; TEXT_SHAPE[4][16] = 1;
+        TEXT_SHAPE[5][10] = 0; TEXT_SHAPE[5][11] = 1; TEXT_SHAPE[5][12] = 1; TEXT_SHAPE[5][13] = 1; TEXT_SHAPE[5][14] = 1; TEXT_SHAPE[5][15] = 1; TEXT_SHAPE[5][16] = 0;
+        TEXT_SHAPE[6][10] = 0; TEXT_SHAPE[6][11] = 1; TEXT_SHAPE[6][12] = 1; TEXT_SHAPE[6][13] = 0; TEXT_SHAPE[6][14] = 0; TEXT_SHAPE[6][15] = 0; TEXT_SHAPE[6][16] = 0;
+
+        // T (columnas 18-24)
+        TEXT_SHAPE[1][18] = 1; TEXT_SHAPE[1][19] = 1; TEXT_SHAPE[1][20] = 1; TEXT_SHAPE[1][21] = 1; TEXT_SHAPE[1][22] = 1; TEXT_SHAPE[1][23] = 1; TEXT_SHAPE[1][24] = 1;
+        TEXT_SHAPE[2][18] = 1; TEXT_SHAPE[2][19] = 1; TEXT_SHAPE[2][20] = 1; TEXT_SHAPE[2][21] = 1; TEXT_SHAPE[2][22] = 1; TEXT_SHAPE[2][23] = 1; TEXT_SHAPE[2][24] = 1;
+        TEXT_SHAPE[3][18] = 0; TEXT_SHAPE[3][19] = 0; TEXT_SHAPE[3][20] = 1; TEXT_SHAPE[3][21] = 1; TEXT_SHAPE[3][22] = 1; TEXT_SHAPE[3][23] = 0; TEXT_SHAPE[3][24] = 0;
+        TEXT_SHAPE[4][18] = 0; TEXT_SHAPE[4][19] = 0; TEXT_SHAPE[4][20] = 1; TEXT_SHAPE[4][21] = 1; TEXT_SHAPE[4][22] = 1; TEXT_SHAPE[4][23] = 0; TEXT_SHAPE[4][24] = 0;
+        TEXT_SHAPE[5][18] = 0; TEXT_SHAPE[5][19] = 0; TEXT_SHAPE[5][20] = 1; TEXT_SHAPE[5][21] = 1; TEXT_SHAPE[5][22] = 1; TEXT_SHAPE[5][23] = 0; TEXT_SHAPE[5][24] = 0;
+        TEXT_SHAPE[6][18] = 0; TEXT_SHAPE[6][19] = 0; TEXT_SHAPE[6][20] = 1; TEXT_SHAPE[6][21] = 1; TEXT_SHAPE[6][22] = 1; TEXT_SHAPE[6][23] = 0; TEXT_SHAPE[6][24] = 0;
+
+        // U (columnas 26-33)
+        TEXT_SHAPE[1][26] = 1; TEXT_SHAPE[1][27] = 1; TEXT_SHAPE[1][28] = 0; TEXT_SHAPE[1][29] = 0; TEXT_SHAPE[1][30] = 0; TEXT_SHAPE[1][31] = 1; TEXT_SHAPE[1][32] = 1;
+        TEXT_SHAPE[2][26] = 1; TEXT_SHAPE[2][27] = 1; TEXT_SHAPE[2][28] = 0; TEXT_SHAPE[2][29] = 0; TEXT_SHAPE[2][30] = 0; TEXT_SHAPE[2][31] = 1; TEXT_SHAPE[2][32] = 1;
+        TEXT_SHAPE[3][26] = 1; TEXT_SHAPE[3][27] = 1; TEXT_SHAPE[3][28] = 0; TEXT_SHAPE[3][29] = 0; TEXT_SHAPE[3][30] = 0; TEXT_SHAPE[3][31] = 1; TEXT_SHAPE[3][32] = 1; 
+        TEXT_SHAPE[4][26] = 1; TEXT_SHAPE[4][27] = 1; TEXT_SHAPE[4][28] = 0; TEXT_SHAPE[4][29] = 0; TEXT_SHAPE[4][30] = 0; TEXT_SHAPE[4][31] = 1; TEXT_SHAPE[4][32] = 1;
+        TEXT_SHAPE[5][26] = 1; TEXT_SHAPE[5][27] = 1; TEXT_SHAPE[5][28] = 1; TEXT_SHAPE[5][29] = 1; TEXT_SHAPE[5][30] = 1; TEXT_SHAPE[5][31] = 1; TEXT_SHAPE[5][32] = 1; 
+        TEXT_SHAPE[6][26] = 0; TEXT_SHAPE[6][27] = 1; TEXT_SHAPE[6][28] = 1; TEXT_SHAPE[6][29] = 1; TEXT_SHAPE[6][30] = 1; TEXT_SHAPE[6][31] = 1; TEXT_SHAPE[6][32] = 0;
+
+        // S (columnas 35-41)
+        TEXT_SHAPE[1][35] = 1; TEXT_SHAPE[1][36] = 1; TEXT_SHAPE[1][37] = 1; TEXT_SHAPE[1][38] = 1; TEXT_SHAPE[1][39] = 1; TEXT_SHAPE[1][40] = 1; TEXT_SHAPE[1][41] = 1;
+        TEXT_SHAPE[2][35] = 1; TEXT_SHAPE[2][36] = 1; TEXT_SHAPE[2][37] = 1; TEXT_SHAPE[2][38] = 0; TEXT_SHAPE[2][39] = 0; TEXT_SHAPE[2][40] = 0; TEXT_SHAPE[2][41] = 0;
+        TEXT_SHAPE[3][35] = 1; TEXT_SHAPE[3][36] = 1; TEXT_SHAPE[3][37] = 1; TEXT_SHAPE[3][38] = 0; TEXT_SHAPE[3][39] = 0; TEXT_SHAPE[3][40] = 0; TEXT_SHAPE[3][41] = 0;
+        TEXT_SHAPE[4][35] = 1; TEXT_SHAPE[4][36] = 1; TEXT_SHAPE[4][37] = 1; TEXT_SHAPE[4][38] = 1; TEXT_SHAPE[4][39] = 1; TEXT_SHAPE[4][40] = 1; TEXT_SHAPE[4][41] = 1;
+        TEXT_SHAPE[5][35] = 0; TEXT_SHAPE[5][36] = 0; TEXT_SHAPE[5][37] = 0; TEXT_SHAPE[5][38] = 0; TEXT_SHAPE[5][39] = 1; TEXT_SHAPE[5][40] = 1; TEXT_SHAPE[5][41] = 1;
+        TEXT_SHAPE[6][35] = 1; TEXT_SHAPE[6][36] = 1; TEXT_SHAPE[6][37] = 1; TEXT_SHAPE[6][38] = 1; TEXT_SHAPE[6][39] = 1; TEXT_SHAPE[6][40] = 1; TEXT_SHAPE[6][41] = 1;
+
+        let clicked = false;
+        let reset_all = false;
+        const pull_distance = 120;
+
+        const updateCellPositions = () => {
+            cells.forEach((cell) => {
+                const rect = cell.getBoundingClientRect();
+                cell.center_position = {
+                    x: (rect.left + rect.right) / 2,
+                    y: (rect.top + rect.bottom) / 2,
+                };
             });
         };
 
-        // Ejecutar Three.js
-        document.addEventListener('DOMContentLoaded', initThreeJS);
+        const handleCellClick = (e, i) => {
+            if (clicked) return;
+            clicked = true;
+            gsap.to('.cell', {
+                duration: 1.6,
+                physics2D: {
+                    velocity: 'random(400, 1000)',
+                    angle: 'random(250, 290)',
+                    gravity: 2000
+                },
+                stagger: {
+                    grid: [x_max, y_max],
+                    from: i,
+                    amount: 0.3
+                },
+                onComplete: function () {
+                    this.timeScale(-1.3);
+                },
+                onReverseComplete: () => {
+                    clicked = false;
+                    reset_all = true;
+                    handlePointerMove();
+                },
+            });
+        };
 
-        // --- 4. RESPONSIVE MENU LOGIC ---
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+        const handlePointerMove = (e = { pageX: -pull_distance, pageY: -pull_distance }) => {
+            if (clicked) return;
+            const pointer_x = e.pageX || -pull_distance;
+            const pointer_y = e.pageY || -pull_distance;
+            cells.forEach((cell, i) => {
+                const diff_x = pointer_x - cell.center_position.x;
+                const diff_y = pointer_y - cell.center_position.y;
+                const distance = Math.sqrt(diff_x * diff_x + diff_y * diff_y);
+                if (distance < pull_distance) {
+                    const percent = distance / pull_distance;
+                    cell.pulled = true;
+                    gsap.to(cell, {
+                        duration: 0.2,
+                        x: diff_x * percent,
+                        y: diff_y * percent,
+                    });
+                } else {
+                    if (!cell.pulled) return;
+                    cell.pulled = false;
+                    gsap.to(cell, {
+                        duration: 1,
+                        x: 0,
+                        y: 0,
+                        ease: "elastic.out(1, 0.3)",
+                    });
+                }
+            });
+            if (reset_all) {
+                reset_all = false;
+                cells.forEach((cell) => {
+                    const cell_x = parseInt(cell.getAttribute('data-x'));
+                    const cell_y = parseInt(cell.getAttribute('data-y'));
+                    const shape_val = TEXT_SHAPE[cell_y] ? TEXT_SHAPE[cell_y][cell_x] : 0;
+                    const is_part_of_text = shape_val === 1;
+                    const is_part_of_bg = shape_val === 2;
+                    gsap.to(cell, {
+                        duration: 1,
+                        x: 0,
+                        y: 0,
+                        ease: "elastic.out(1, 0.3)",
+                        opacity: is_part_of_text ? 0.9 : (is_part_of_bg ? 0.5 : 0.05),
+                        scale: is_part_of_text || is_part_of_bg ? 1 : 0.2
+                    });
+                });
+            }
+        };
 
-        hamburger.addEventListener('click', () => {
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
+        const init = () => {
+            updateCellPositions();
+            window.addEventListener('resize', updateCellPositions);
+            window.addEventListener('pointermove', handlePointerMove);
+            document.body.addEventListener('pointerleave', () => handlePointerMove());
+            cells.forEach((cell, i) => {
+                const cell_x = parseInt(cell.getAttribute('data-x'));
+                const cell_y = parseInt(cell.getAttribute('data-y'));
+                const shape_val = TEXT_SHAPE[cell_y] ? TEXT_SHAPE[cell_y][cell_x] : 0;
+                cell.classList.remove('cell-text', 'cell-bg');
+                if (shape_val === 1) {
+                    cell.classList.add('cell-text');
+                    gsap.set(cell, { opacity: 0.9, scale: 1 });
+                } else if (shape_val === 2) {
+                    cell.classList.add('cell-bg');
+                    gsap.set(cell, { opacity: 0.5, scale: 1 });
+                } else {
+                    gsap.set(cell, { opacity: 0.05, scale: 0.2 });
+                }
+                cell.addEventListener('pointerup', (e) => handleCellClick(e, i));
+            });
+        };
+
+        if (typeof gsap !== 'undefined') {
+            init();
+        } else {
+            window.addEventListener('load', init);
+        }
+    </script>
+
+    <script>
+        // === CAMBIO DE TEMA ===
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Cargar tema guardado
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.checked = true;
+        }
+        
+        // Listener para cambio de tema
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
             } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '80px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'white';
-                navLinks.style.padding = '20px';
-                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
             }
         });
 
+        window.addEventListener("DOMContentLoaded", () => {
+            if (typeof InertiaPlugin === 'undefined') {
+                console.warn('InertiaPlugin no disponible');
+                return;
+            }
+            
+            gsap.registerPlugin(InertiaPlugin);
+
+            let oldX = 0, 
+                oldY = 0, 
+                deltaX = 0,
+                deltaY = 0;
+            
+            const root = document.querySelector('.mwg_effect000');
+            if (!root) return;
+            
+            root.addEventListener("mousemove", (e) => {
+                deltaX = e.clientX - oldX;
+                deltaY = e.clientY - oldY;
+                oldX = e.clientX;
+                oldY = e.clientY;
+            });
+
+            root.querySelectorAll('.media').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    const tl = gsap.timeline({ 
+                        onComplete: () => {
+                            tl.kill();
+                        }
+                    });
+                    tl.timeScale(1.2);
+                    
+                    const image = el.querySelector('img');
+                    tl.to(image, {
+                       inertia: {
+                            x: {
+                                velocity: deltaX * 30,
+                                end: 0
+                            },
+                            y: {
+                                velocity: deltaY * 30,
+                                end: 0
+                            },
+                        },
+                    });
+                    tl.fromTo(image, {
+                        rotate: 0
+                    }, {
+                        duration: 0.4,
+                        rotate: (Math.random() - 0.5) * 30,
+                        yoyo: true, 
+                        repeat: 1,
+                        ease: 'power1.inOut'
+                    }, '<');
+                });
+            });
+        });
     </script>
 </body>
 </html>
